@@ -657,7 +657,12 @@
     
     NSArray *array=[rootDic objectForKey:[[rootDic allKeys] objectAtIndex:0]];
     
-    NSDictionary *HeWeather=[ array objectAtIndex:0];
+    id HeWeathe=[ array objectAtIndex:0];
+    if (![HeWeathe isMemberOfClass:[NSDictionary class]]) {
+        return;
+    }
+    
+    NSDictionary *HeWeather = (NSDictionary *)HeWeathe;
     
     NSArray *daily_forecast=[HeWeather objectForKey:@"daily_forecast"];
     
